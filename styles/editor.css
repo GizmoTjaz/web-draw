@@ -1,0 +1,225 @@
+body {
+	height: 100vh;
+}
+
+body #content {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 70% 30%;
+	grid-template-areas: 
+		"canvas canvas"
+		"frame-list drawing-tools";
+}
+
+#export-screen {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+	transition: all ease-in-out .2s;
+	visibility: hidden;
+}
+
+#export-screen.active {
+	background-color: rgba(0, 0, 0, .7);
+	visibility: visible;
+}
+
+#frame-list-container,
+#tools-container {
+	height: calc(100vh - 100px);
+	padding: 0 1rem 0 1rem;
+}
+
+#frame-list-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	grid-area: frame-list;
+}
+
+#frame-list-controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: .5rem;
+}
+
+#frame-list-controls button {
+	width: 2rem;
+	height: 2rem;
+	margin: 0 .25rem 0 .25rem;
+}
+
+#frame-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	overflow-y: auto;
+	scrollbar-gutter: stable;
+}
+
+#canvas-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	grid-area: canvas;
+	margin-bottom: 2rem;
+}
+
+#canvas-center {
+	position: relative;
+}
+
+#canvas-container canvas {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1.333;
+}
+
+#drawing-canvas {
+	background-color: #FFF;
+	position: relative;
+	z-index: 1;
+}
+
+#ref-canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .3;
+	z-index: 2;
+	pointer-events: none;
+}
+
+#tools-container {
+	max-width: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	grid-area: drawing-tools;
+}
+
+#tools-container div {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+#brush-properties {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-areas: "brush-width-label brush-width-input";
+	align-items: center;
+}
+
+#brush-properties label {
+	grid-area: brush-width-label;
+}
+
+#brush-width-input {
+	grid-area: brush-width-input;
+}
+
+#export-container {
+	display: flex;
+	justify-content: center;
+}
+
+#export-button {
+	font-size: 1.5rem;
+}
+
+.mini-frame-container {
+	position: relative;
+	background-color: #FFF;
+	width: 108px;
+	aspect-ratio: 1.3333;
+	margin: .2rem;
+	cursor: pointer;
+	border: 2px solid transparent;
+	border-radius: 3px;
+}
+
+.mini-frame-container.selected {
+	border: 2px solid var(--primary-color);
+}
+
+.mini-frame-canvas {
+	width: 100%;
+	height: 100%;
+}
+
+.mini-frame-controls {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	cursor: default;
+}
+
+.mini-frame-container:hover .mini-frame-controls {
+	visibility: visible;
+}
+
+.mini-frame-controls button {
+	padding: 0;
+	margin-bottom: 2px;
+}
+
+.mini-frame-controls button img {
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+/* Responsive Layout */
+
+@media only screen and (min-width: 900px) {
+	
+	body #content {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-start;
+		width: 100%;
+	}
+	
+	#frame-list-container,
+	#tools-container {
+		padding: 0 2.5rem 0 2.5rem;
+	}
+	
+	#frame-list-container {
+		max-width: 120px;
+		align-items: center;
+	}
+
+	#frame-list {
+		scrollbar-gutter: stable both-edges;
+	}
+
+	#tools-container {
+		align-items: center;
+	}
+	
+	.mini-frame-controls {
+		visibility: hidden;
+	}
+	
+}

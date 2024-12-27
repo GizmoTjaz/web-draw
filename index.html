@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/index.css">
+	<title>Projects</title>
+</head>
+<body>
+
+	<nav>
+		<a href="index.html">Projects</a>
+	</nav>
+
+	<div id="content">
+
+		<!-- Project Browser -->
+		<dialog id="project-creator-dialog">
+			<form method="dialog">
+				<label for="project-creator-name-input">Project name</label>
+				<input type="text" id="project-creator-name-input" required>
+				<div id="project-creator-controls">
+					<button type="submit" id="project-creator-submit">Create</button>
+					<button type="submit" id="project-creator-cancel" formnovalidate>Cancel</button>
+				</div>
+			</form>
+		</dialog>
+		<div id="project-browser-header">
+			<h1>Projects</h1>
+			<div id="project-browser-controls">
+				<button class="icon" id="project-browser-create-button">
+					<img src="./icons/plus.svg" alt="Create project" title="Create project">
+				</button>
+			</div>
+		</div>
+		<div id="project-browser-list"></div>
+
+	</div>
+
+	<script src="scripts/main.js" type="module"></script>
+</body>
+</html>

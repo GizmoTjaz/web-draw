@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/editor.css">
+	<title>Editor</title>
+</head>
+<body>
+
+	<nav>
+		<a href="index.html">Projects</a>
+	</nav>
+
+	<div id="export-screen">
+		<h1>Exporting...</h1>
+	</div>
+
+	<div id="content">
+		<aside id="frame-list-container">
+			<div id="frame-list-controls">
+				<button id="frame-list-add-button" class="icon">
+					<img src="./icons/plus.svg" alt="Add frame" title="Add frame">
+				</button>
+				<button id="frame-list-delete-button" class="icon">
+					<img src="./icons/trash.svg" alt="Delete all frames" title="Delete all frames">
+				</button>
+				<button id="frame-list-play-button" class="icon">
+					<img src="./icons/play.svg" alt="Play" title="Play">
+				</button>
+			</div>
+			<div id="frame-list"></div>
+		</aside>
+		<div id="canvas-container">
+			<div id="canvas-center">
+				<canvas id="ref-canvas" width="640" height="480"></canvas>
+				<canvas id="drawing-canvas" width="640" height="480"></canvas>
+			</div>
+		</div>
+		<aside id="tools-container">
+			<div>
+				<fieldset>
+					<legend>Brushes</legend>
+					<input type="radio" id="pencil-brush" name="brush" value="pencil" checked>
+					<label for="pencil-brush">Pencil</label>
+					<input type="radio" id="eraser-brush" name="brush" value="eraser">
+					<label for="eraser-brush">Eraser</label>
+				</fieldset>
+			</div>
+			<div id="brush-properties">
+				<label for="brush-width-input">Brush Width</label>
+				<input id="brush-width-input" type="number" value="5" min="0" max="100">
+			</div>
+			<div id="export-container">
+				<button id="export-button">Export</button>
+			</div>
+		</aside>
+	</div>
+
+	<script src="scripts/editor.js" type="module" crossorigin="anonymous"></script>
+</body>
+</html>
